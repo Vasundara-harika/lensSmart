@@ -77,23 +77,22 @@ export default function Navbar() {
         </div>
 
         
-        {/* Cart + Logout */}
-<div className="flex items-center gap-4">
-  <Link to="/cart">
-    <FaShoppingCart className="text-purple-200 text-2xl hover:text-white transition cursor-pointer" />
-  </Link>
-  {localStorage.getItem("isLoggedIn") === "true" && (
-    <button
-      onClick={() => {
-        localStorage.removeItem("isLoggedIn");
-        window.location.href = "/signin"; // force redirect to SignIn
-      }}
-      className="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-full"
-    >
-      Logout
-    </button>
-  )}
-</div>
+       
+{/* Cart + Logout */}
+        <div className="flex items-center gap-4">
+          <Link to="/cart">
+            <FaShoppingCart className="text-purple-200 text-2xl hover:text-white transition cursor-pointer" />
+          </Link>
+          {localStorage.getItem("isLoggedIn") === "true" && (
+            <button
+              onClick={() => {
+                localStorage.removeItem("isLoggedIn");
+                navigate("/signin"); // <-- use navigate instead of window.location.href
+              }}
+              className="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-full"
+            >
+              Logout
+            </button>
 
       </div>
     </nav>
