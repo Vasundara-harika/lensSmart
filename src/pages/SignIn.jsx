@@ -47,7 +47,7 @@ export default function SignIn() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="mt-1 block w-full p-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-indigo-700"
-            placeholder="Enter your name"
+            placeholder="user name is 'vasundara'"
           />
         </div>
 
@@ -59,7 +59,7 @@ export default function SignIn() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="mt-1 block w-full p-2.5 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-indigo-700"
-            placeholder="Enter password"
+            placeholder="Password is 'password'"
           />
         </div>
 

@@ -1,10 +1,11 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import logo from "../assets/logo.jpg";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const { pathname } = useLocation();
+  const navigate = useNavigate(); // ✅ Add useNavigate
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -61,7 +62,6 @@ export default function Navbar() {
             Products
           </Link>
 
-          {/* ✅ This scrolls to Contact section if on homepage */}
           <Link
             to="/"
             onClick={(e) => {
@@ -76,9 +76,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        
-       
-{/* Cart + Logout */}
+        {/* Cart + Logout */}
         <div className="flex items-center gap-4">
           <Link to="/cart">
             <FaShoppingCart className="text-purple-200 text-2xl hover:text-white transition cursor-pointer" />
@@ -86,14 +84,15 @@ export default function Navbar() {
           {localStorage.getItem("isLoggedIn") === "true" && (
             <button
               onClick={() => {
-                localStorage.removeItem("isLoggedIn");
-                navigate("/signin"); // <-- use navigate instead of window.location.href
+                localStorage.removeItem("isLoggedIn"); // remove login flag
+                navigate("/signin"); // ✅ navigate to signin page
               }}
               className="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-full"
             >
               Logout
             </button>
-
+          )}
+        </div>
       </div>
     </nav>
   );
